@@ -81,5 +81,9 @@ Now we reference the files in our HTML page.
         <script src="bower_components/react/react.js"></script>
         <script src="bower_components/react/react-dom.js"></script>
         <script src="bower_components/babel/browser.js"></script>
+    </head>
+    <body>
+        <div id="example"></div>
+        ...
     </body>
 ```
