@@ -177,9 +177,16 @@ Make sure to clean up the HTML page
     </body>
 ```
 
-In order to compile JSX into JS run the following
+In order to compile JSX into JS run the following lets update package.json
 ```
-> babel script.jsx --out-file script.js
-> npm run dev
+//Inside package.json...
+....
+  "scripts": {    
+    "dev": "babel script.jsx --out-file script.js && lite-server"
+  },
+....
+```
+```
+npm run dev
 ```
 You will now see a new file called script.js created and loaded in the browser having the same functionality.
