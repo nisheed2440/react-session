@@ -81,5 +81,43 @@ Now we reference the files in our HTML page.
         <script src="bower_components/react/react.js"></script>
         <script src="bower_components/react/react-dom.js"></script>
         <script src="bower_components/babel/browser.js"></script>
+    </head>
+    <body>
+        <div id="example"></div>
+        ...
     </body>
+```
+
+##03 - JSX and HelloWorld component
+
+JSX is a preprocessor step that adds XML syntax to JavaScript. You can definitely use React without JSX but JSX makes React a lot more elegant. Just like XML, JSX tags have a tag name, attributes, and children. If an attribute value is enclosed in quotes, the value is a string.
+
+Our first component
+
+```
+    ....
+       <div id="example"></div>
+       <!-- Runtime JSX compiler script -->
+       <script type="text/babel">
+
+            var HelloWorld = React.createClass({
+                render: function() {
+                    return (
+                    <p>
+                        Hello, <input type="text" placeholder="Your name here" />!
+                        It is {this.props.date.toTimeString()}
+                    </p>
+                    );
+                }
+            });
+
+            setInterval(function() {
+                ReactDOM.render(
+                    <HelloWorld date={new Date()} />,
+                    document.getElementById('example')
+                );
+            }, 500);
+
+        </script> 
+    ....
 ```
