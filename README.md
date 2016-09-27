@@ -121,3 +121,65 @@ Our first component
         </script> 
     ....
 ```
+
+##04 - Precompiling using babel
+
+Babel is a JS transpiler initially created to make `es6` JS compatible with `es5` supported browsers.
+
+We install the babel CLI and the preset to be used to tell babel, that currently we are tranforming `JSX` files.
+
+First let us install the required `npm` modules.
+```
+npm install --save-dev babel-cli babel-preset-react
+```
+
+Next we add a `.bablerc` file in the root folder and add the following config.
+
+```
+{
+  "presets": ["react"]
+}
+```
+
+Create a new file `script.jsx` in the root and copy the code from `lesson-03` into it.
+
+```
+//Inside script.jsx
+var HelloWorld = React.createClass({
+    render: function() {
+        return (
+        <p>
+            Hello, <input type="text" placeholder="Your name here" />!
+            It is {this.props.date.toTimeString()}
+        </p>
+        );
+    }
+});
+
+setInterval(function() {
+    ReactDOM.render(
+        <HelloWorld date={new Date()} />,
+        document.getElementById('example')
+    );
+}, 500);
+```
+
+Make sure to clean up the HTML page
+```
+...
+    <!-- Remove the script tags and move it end of body-->
+    </head>
+    <body>
+        <div id="example"></div>
+        <script src="bower_components/react/react.js"></script>
+        <script src="bower_components/react/react-dom.js"></script>
+        <script src="script.js"></script>
+    </body>
+```
+
+In order to compile JSX into JS run the following
+```
+> babel script.jsx --out-file script.js
+> npm run dev
+```
+You will now see a new file called script.js created and loaded in the browser having the same functionality.
