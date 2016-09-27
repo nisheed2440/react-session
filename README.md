@@ -133,7 +133,7 @@ First let us install the required `npm` modules.
 npm install --save-dev babel-cli babel-preset-react
 ```
 
-Next we add a `.bablerc` file in the root folder and add the following config.
+Next we add a ~~`.bablerc`~~ `.babelrc` file in the root folder and add the following config.
 
 ```
 {
